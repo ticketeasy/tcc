@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form1">
+			<p:messages id="messages" autoUpdate="true" />
+			
+			<center>
+				<p:dataTable id="lstPlano" var="plano"
+					value="#{planoEnsinoBean.planoEnsinos}" style="width:100%;"
+					rows="10" paginator="true">
+					<f:facet name="header">  
+            			Cadastro de Planos de Ensino
+            		 </f:facet>
+            		 <p:column headerText="Código" style="width:7%;">
+						<center>
+							<strong><h:outputText value="#{plano.id}" /></strong>
+						</center>
+					</p:column>
+
+					<p:column headerText="Nome Curso" style="width:20%;">
+						<strong><h:outputText value="#{plano.curso.nomeCurso}" /></strong>
+					</p:column>
+					
+					<p:column headerText="Descrição" style="width:24%;">
+						<strong><h:outputText value="#{plano.curso.descricao}" /></strong>
+					</p:column>
+					
+					<p:column headerText="Disciplina" style="width:24%;">
+						<strong><h:outputText value="#{plano.disciplina.nomeDisc}" /></strong>
+					</p:column>
+					
+					<p:column headerText="Professor" style="width:24%;">
+						<strong><h:outputText value="#{plano.professor.nome}" /></strong>
+					</p:column>
+					
+					<p:column style="width:3%">
+						<p:commandButton action="#{planoEnsinoBean.editar}"
+							icon="ui-icon-pencil" title="Editar" disabled="#{loginBean.verificaEdit}">
+							<f:setPropertyActionListener value="#{plano}"
+								target="#{planoEnsinoBean.planoEnsino}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width:3%">
+							<p:commandButton action="#{planoEnsinoBean.excluir()}" icon="ui-icon-trash" title="Excluir" update="lstPlano" disabled="#{loginBean.verificaEliminar}">
+                				<f:setPropertyActionListener value="#{plano}"
+								target="#{planoEnsinoBean.planoEnsino}" /> 
+                			</p:commandButton>  
+        		     </p:column>  
+        		     <p:column style="width:3%">
+							<p:commandButton action="#{planoEnsinoBean.imprimir()}" icon="ui-icon-print" title="Imprimir" update="lstPlano" disabled="#{loginBean.verificaVisualizar}">
+                				<f:setPropertyActionListener value="#{plano}"
+								target="#{planoEnsinoBean.planoEnsino}" /> 
+                			</p:commandButton>  
+        		     </p:column>
+            		 
+            	</p:dataTable>
+            	<br />
+				<p:commandButton value="Novo"
+					action="#{planoEnsinoBean.novoPlano()}" disabled="#{loginBean.verificaInserir}" />
+				<p:commandButton value="Voltar"
+					action="#{planoEnsinoBean.voltar()}" />
+            </center>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>

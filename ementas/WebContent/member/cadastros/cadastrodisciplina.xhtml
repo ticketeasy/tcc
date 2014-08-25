@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formDisciplina">
+			<p:messages id="messages" autoUpdate="true" />
+			<center>
+				<p:dataTable id="disciplina" var="disciplina"   
+					value="#{disciplinaBean.disciplinas}" style="width:80%;" 
+					rows="10" paginator="true">
+					<f:facet name="header">  
+            			Cadastro de Disciplinas
+            		 </f:facet>
+
+					<p:column headerText="Código" style="width:10%;">
+						<center>
+							<strong><h:outputText value="#{disciplina.id}" /></strong>
+						</center>
+					</p:column>
+
+					<p:column headerText="Nome Disciplina" style="width:40%;">
+						<strong><h:outputText value="#{disciplina.nomeDisc}" /></strong>
+					</p:column>
+					
+					<p:column headerText="Eixo de Formação" style="width:44%;">
+						<strong><h:outputText value="#{disciplina.eixoFormacao.descricao}" /></strong>
+					</p:column>
+
+					<p:column style="width:3%">
+						<p:commandButton action="#{disciplinaBean.editar}"
+							icon="ui-icon-pencil" title="Editar" disabled="#{loginBean.verificaEdit}">
+							<f:setPropertyActionListener value="#{disciplina}"
+								target="#{disciplinaBean.disciplina}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width:3%">
+							<p:commandButton action="#{disciplinaBean.excluir()}" icon="ui-icon-trash" title="Excluir" update="disciplina" disabled="#{loginBean.verificaEliminar}">
+                				<f:setPropertyActionListener value="#{disciplina}"
+								target="#{disciplinaBean.disciplina}" /> 
+                			</p:commandButton>  
+        		     </p:column>  
+          		</p:dataTable>
+				
+				<br />
+				<p:commandButton value="Novo"
+					action="#{disciplinaBean.novoDisciplina()}" disabled="#{loginBean.verificaInserir}"/>
+				<p:commandButton value="Voltar"
+					action="#{disciplinaBean.voltar()}" />
+			</center>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		    <p:messages id="messages" autoUpdate="true" />
+			<center>
+				<p:dataTable id="lstPerfil" var="perfil" value="#{perfilBean.perfis}"
+					style="width:50%;" selectionMode="single" rows="10" paginator="true"
+					selection="#{perfilBean.perfil}" rowKey="#{perfil.idPerfil}">
+					<f:facet name="header">  
+            			Cadastro de Perfis
+             </f:facet>
+
+					<p:column headerText="Código" style="width:22%;">
+						<center>
+							<h:outputText value="#{perfil.idPerfil}" />
+						</center>
+					</p:column>
+
+					<p:column headerText="Descrição" style="width:70%;">
+						<h:outputText value="#{perfil.descricao}" />
+					</p:column>
+
+					<p:column style="width:4%">
+						<p:commandButton action="#{perfilBean.editar()}"
+							icon="ui-icon-pencil" title="Editar">
+							<f:setPropertyActionListener value="#{perfil}"
+								target="#{perfilBean.perfil}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width:4%">
+						<p:commandButton action="#{perfilBean.excluir()}"
+							icon="ui-icon-trash" title="Excluir" update="lstPerfil">
+							<f:setPropertyActionListener value="#{perfil}"
+								target="#{perfilBean.perfil}" update="perfil" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+				<br/>
+                <p:commandButton value="Novo" action="#{perfilBean.novoPerfil()}"  />  
+                <p:commandButton value="Voltar" action="#{perfilBean.voltar()}" />  
+			</center>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

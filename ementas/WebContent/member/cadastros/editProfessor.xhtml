@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form1">
+			<p:messages id="messages" autoUpdate="true" />
+			
+			<center>
+				<p:panel header="Edição Professor" style="width:100%;">
+					<br />
+					<table>
+						<tr>
+							<td><h:outputText value="Professor: " /></td>
+							<td><p:inputText
+									value="#{professorBean.professor.nome}" size="45" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Email: " /></td>
+							<td><p:inputText
+									value="#{professorBean.professor.email}" size="45" /></td>
+						</tr>
+					</table>
+					<br/>
+					<p:panel style="width:100%;">
+						<p:dataTable id="disciplinas" var="disciplina" value="#{professorBean.professor.disciplinas}">
+						        <f:facet name="header">  
+            						Disciplinas do Professor
+            					 </f:facet>
+                				<p:column headerText="Descrição" style="width:97%">
+                    				<h:outputText value="#{disciplina.nomeDisc}" />
+                				</p:column>
+                				<p:column style="width:3%">
+                				<p:commandButton action="#{professorBean.excluirDisciplina()}" icon="ui-icon-minus"
+									title="Excluir" update="disciplinas" disabled="#{loginBean.verificaEliminar}">
+									<f:setPropertyActionListener value="#{disciplina}"
+										target="#{professorBean.disciplina}" />
+								</p:commandButton>
+                				</p:column>
+          				</p:dataTable>
+          				<br/>
+          				<div align="left">
+          				    <p:commandLink value="Adicionar Disciplina" onclick="dlgDisciplinas.show();return false;" />
+						</div>
+						<br/>
+					</p:panel>
+					
+				</p:panel>
+				<p:dialog id="dlgDisciplinas" header="Disciplinas" widgetVar="dlgDisciplinas"
+						resizable="false" modal="true" width="600" height="580">
+						<p:dataTable var="disciplina" value="#{professorBean.disciplinas}"
+							rows="15" paginator="true">
+							<p:column headerText="Nome Disciplina">
+								<h:outputText value="#{disciplina.nomeDisc}" />
+							</p:column>
+							<p:column style="width:4%">
+								<p:commandButton action="#{professorBean.adicionaDisciplina()}" oncomplete="dlgDisciplinas.hide()" icon="ui-icon-plusthick"
+									title="Seleciona" update=":j_idt5:form1:disciplinas" disabled="#{loginBean.verificaInserir}">
+									<f:setPropertyActionListener value="#{disciplina}"
+										target="#{professorBean.disciplina}" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+				</p:dialog>
+				<br />
+				<p:commandButton value="Salvar"
+					action="#{professorBean.salvar()}" disabled="#{loginBean.verificaSalvar}"/>
+				<p:commandButton value="Cancelar"
+					action="#{professorBean.voltarCadProfessor()}" />
+			</center>
+			
+			
+			
+		</h:form>
+	</ui:define>
+</ui:composition>

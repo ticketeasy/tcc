@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form1">
+			<p:messages id="messages" autoUpdate="true" />
+			<center>
+				<p:panel header="Curso do Plano de Ensino" style="width:100%;" >
+					<div align="left">
+
+						<p:panelGrid columns="2" >
+							<h:outputText value="Curso:  " />
+							<p:selectOneMenu value="#{planoEnsinoBean.planoEnsino.curso}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}">
+								<f:selectItem itemLabel="Selecionar curso" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.cursos}" var="curso"
+									itemLabel="#{curso.nomeCurso}" />
+								<p:ajax update="s_disciplina"
+									listener="#{planoEnsinoBean.handleCurso}" event="change" />
+							</p:selectOneMenu>
+							<h:outputText value="Disciplina:  " />
+							<p:selectOneMenu id="s_disciplina"
+								value="#{planoEnsinoBean.planoEnsino.disciplina}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}">
+								<f:selectItem itemLabel="Selecionar Disciplina" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.disciplinas}"
+									var="disciplina" itemLabel="#{disciplina.nomeDisc}" />
+								<p:ajax update="s_prof1,s_prof2, s_eixo"
+									listener="#{planoEnsinoBean.handleDados}" />
+							</p:selectOneMenu>
+
+							<h:outputText value="Professor:  " />
+							<p:selectOneMenu id="s_prof1"
+								value="#{planoEnsinoBean.planoEnsino.professor}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}">
+								<f:selectItem itemLabel="Selecionar Professor" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.professores}"
+									var="professor" itemLabel="#{professor.nome}" />
+
+							</p:selectOneMenu>
+							<h:outputText value="Professor Aux.:  " />
+							<p:selectOneMenu id="s_prof2"
+								value="#{planoEnsinoBean.planoEnsino.professor1}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}">
+								<f:selectItem itemLabel="Selecionar Professor" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.professores}"
+									var="professoraux" itemLabel="#{professoraux.nome}" />
+
+							</p:selectOneMenu>
+
+							<h:outputText value="Eixo Formação:  " />
+							<p:selectOneMenu id="s_eixo"
+								value="#{planoEnsinoBean.planoEnsino.eixoFormacao}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}" >
+								<f:selectItem itemLabel="Selecionar Formação" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.eixoFormacoes}"
+									var="eixo" itemLabel="#{eixo.descricao}" />
+
+							</p:selectOneMenu>
+
+							<h:outputText value="Usuario:  " />
+							<p:selectOneMenu id="s_usuario"
+								value="#{planoEnsinoBean.planoEnsino.usuario}"
+								converter="entityConverter" disabled="#{planoEnsinoBean.verificaInsert}">
+								<f:selectItem itemLabel="Selecionar Formação" itemValue="" />
+								<f:selectItems value="#{planoEnsinoBean.usuarios}" var="usuario"
+									itemLabel="#{usuario.usuario}" />
+
+							</p:selectOneMenu>
+						</p:panelGrid>
+
+
+
+					</div>
+				</p:panel>
+				<p:panel id="dadosPlano" header="Dados do Plano de Ensino"
+					style="width:100%;">
+					<div align="left">
+						<p:panelGrid columns="2">
+							<h:outputText value="Ementa: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.ementa}"
+								size="45" />
+							<h:outputText value="Carga Horaria: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.cargaHoraria}"
+								size="45" />
+							<h:outputText value="Competencia 1: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.competencia1}"
+								size="45" />
+							<h:outputText value="Competencia 2: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.competencia2}"
+								size="45" />
+							<h:outputText value="Competencia 3: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.competencia3}"
+								size="45" />
+							<h:outputText value="Competencia 4: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.competencia4}"
+								size="45" />
+							<h:outputText value="Competencia 5: " />
+							<p:inputText value="#{planoEnsinoBean.planoEnsino.competencia5}"
+								size="45" />
+							<h:outputText value="Conteudo Ementa: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.conteudoEmenta}" size="150" />
+							<h:outputText value="Referencia 1: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.referenciabas1}" size="45" />
+							<h:outputText value="Referencia 2: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.referenciabas2}" size="45" />
+							<h:outputText value="Referencia 3: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.referenciabas3}" size="45" />
+							<h:outputText value="Referencia Cpl 1: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.referenciacompl1}"
+								size="45" />
+							<h:outputText value="Referencia Cpl 2: " />
+							<p:inputText
+								value="#{planoEnsinoBean.planoEnsino.referenciacompl2}"
+								size="45" />
+						</p:panelGrid>
+					</div>
+				</p:panel>
+				<br />
+				<p:commandButton value="Salvar" action="#{planoEnsinoBean.salvar()}" disabled="#{loginBean.verificaSalvar}"/>
+				<p:commandButton value="Cancelar"
+					action="#{planoEnsinoBean.voltarCadPlanoEnsino()}" />
+
+			</center>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

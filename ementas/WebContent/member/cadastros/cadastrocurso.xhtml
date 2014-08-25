@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../../template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="formCurso">
+			<p:messages id="messages" autoUpdate="true" />
+			<center>
+				<p:dataTable id="lstCurso" var="curso"
+					value="#{cursoBean.cursos}" style="width:80%;"
+					rows="10" paginator="true">
+					<f:facet name="header">  
+            			Cadastro de Cursos
+            		 </f:facet>
+
+					<p:column headerText="Código" style="width:10%;">
+						<center>
+							<strong><h:outputText value="#{curso.id}" /></strong>
+						</center>
+					</p:column>
+
+					<p:column headerText="Nome Curso" style="width:20%;">
+						<strong><h:outputText value="#{curso.nomeCurso}" /></strong>
+					</p:column>
+					
+					<p:column headerText="Descrição" style="width:64%;">
+						<strong><h:outputText value="#{curso.descricao}" /></strong>
+					</p:column>
+
+					<p:column style="width:3%" >
+						<p:commandButton action="#{cursoBean.editar}"
+							icon="ui-icon-pencil" title="Editar" disabled="#{loginBean.verificaEdit}">
+							<f:setPropertyActionListener value="#{curso}"
+								target="#{cursoBean.curso}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width:3%">
+							<p:commandButton action="#{cursoBean.excluir()}" icon="ui-icon-trash" title="Excluir" update="lstCurso" 
+							       disabled="#{loginBean.verificaEliminar}">
+                				<f:setPropertyActionListener value="#{curso}"
+								target="#{cursoBean.curso}" /> 
+                			</p:commandButton>  
+        		     </p:column>  
+          		</p:dataTable>
+				
+				<br />
+				<p:commandButton value="Novo"
+					action="#{cursoBean.novoCurso()}" disabled="#{loginBean.verificaInserir}"/>
+				<p:commandButton value="Voltar"
+					action="#{cursoBean.voltar()}" />
+			</center>
+			
+		</h:form>
+			
+	</ui:define>
+</ui:composition>

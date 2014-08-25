@@ -1,0 +1,176 @@
+/* 
+    Document   : default
+    Created on : 16/11/2012, 09:38:04
+    Author     : alex
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    margin: 0px !important;
+    
+}
+
+.centered {
+	margin: 0px auto !important;
+}
+
+.label,
+.message
+{
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#777777;
+    font: 12px;
+}
+
+.label{
+    font-size:14px;
+}
+.tableBorder{
+    border:solid 1px #444444;
+    margin-top:100px;
+}
+.message{
+    font-size:14px;
+    font-weight:bold;
+    
+}
+.tableHeader
+{
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+.sefaztable
+{
+	width: 1000px;
+}
+
+body#corpo {
+    background-color: #EEF4FB;
+    font: 8px verdana;
+}
+
+
+
+div#topo {
+   background-color: #777777;
+   height: 50px;
+   margin-bottom: 1px;
+   width: 100%;
+   border-top: 8px solid #444444;
+   padding: 0px;
+}
+
+
+div#menu {
+   background-color: #777777;
+   height: 20px;
+   margin-bottom: 0px;
+   width: 100%;
+   border-top: 0px solid #444444;
+   padding: 0px;
+   
+}
+
+div#topo h3{
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20pt;
+    line-height: 45px;
+    margin: 0px;
+}
+
+
+.tamtxt{
+    width: 200px;
+}
+
+/*
+.ui-growl {
+    position: fixed;
+    right: 100px !important;
+    top: 65px !important;
+    width: 350px !important;
+    z-index: 9999;
+    alignment-adjust: central;
+}
+/*
+
+ 
+.ui-menu {
+    padding: 0px;
+    position: relative;
+    background:  #FFFFFF;
+}
+
+*/
+.ui-widget {
+    font-family: Arial,sans-serif;
+    font-size: 0.7em;
+    
+}
+
+/*
+div#content {
+	    margin:1px auto;
+        margin-top: 12px;
+        text-align:left;
+        padding:40px;
+        padding-left: 80px;
+	    border:1px solid #333;
+	    background-color:#eee;
+        alignment-adjust: central;
+}
+*/
+
+div#content {
+    background-color: #EEEEEE;
+    border: 1px solid #333333;
+    margin: 12px auto 1px;
+    padding: 40px 150px 40px 80px;
+    alignment-adjust: central;
+}
+
+div.ui-dt-c {
+    overflow: hidden;
+    padding: 3px 20px;
+    font-weight:900;
+    
+}
+
+
+.ui-panel-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    padding: 0.1em 20em !important;
+}
+
+tr.ui-datatable-even:hover, tr.ui-datatable-even:active,
+tr.ui-datatable-odd:hover, tr.ui-datatable-odd:active {
+   background-color: #78BCFF;
+}
+.ui-datatable .ui-datatable-data tr.ui-state-hover,
+.ui-datatable .ui-datatable-data tr.ui-state-active {
+   background-color: #78BCFF;
+}
+.ui-datatable tbody tr.ui-selected td {
+   background-color: #78BCFF;
+}
+.ui-datatable tbody tr.ui-state-highlight td {
+   background-color: #78BCFF;
+}
+
+.ui-datatable .ui-datatable-data .even-row td{  
+   background-color:#EEDD82;  
+}  
+      
+.ui-datatable .ui-datatable-data .odd-row td{  
+   background-color:#FFFACD;  
+}  
+
+.ui-menu {
+    padding: 0px;
+    position: center;
+    background:  #FFFFFF;
+}
