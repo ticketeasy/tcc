@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<meta name="version" content="1.109" />
+	<title>Socio Furacão</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.css" />
+
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/commons.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/sf01.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="http://d2u7lk6xj1kydh.cloudfront.net/site/css/jquery-ui-1.9.2.custom.css" />
+    <link rel="stylesheet" type="text/css" href="http://d2u7lk6xj1kydh.cloudfront.net/site/css/jquery.ui.1.9.2.ie.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css" />
+    
+</h:head>
+<h:body>
+
+	<ui:insert name="header">
+		<ui:include src="/template/common/header.xhtml" />
+	</ui:insert>
+
+	<ui:insert name="content">
+		<ui:include src="/template/common/content.xhtml" />
+	</ui:insert>
+
+	<ui:insert name="footer">
+		<ui:include src="/template/common/footer.xhtml" />
+	</ui:insert>
+
+
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/jquery.slides.min.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/jquery-1.11.0.min.js"></script>
+	
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/jquery.maskedinput.js"></script>
+
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/bootstrap.min.js"></script>
+	
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/plugins.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/main.js"></script>
+		
+	<script>
+		$(document).ready(function () {
+   			$('#cadastrousuario\\:SocioCPF').mask('999.999.999-99');   
+   			$("#cadastrousuario\\:SocioNascimento").mask("99/99/9999");
+   			$("#cadastrousuario\\:SocioRg").mask("9.999.999-9");
+   			$("#cadastrousuario\\:SocioCEP").mask("99999-999");
+   		});
+	</script>
+
+	<script>
+     (function ($, window, delay) {
+    	  // http://jsfiddle.net/AndreasPizsa/NzvKC/
+    	  var theTimer = 0;
+    	  var theElement = null;
+    	    var theLastPosition = {x:0,y:0};
+    	  $('[data-toggle]')
+    	    .closest('li')
+    	    .on('mouseenter', function (inEvent) {
+    	    if (theElement) theElement.removeClass('open');
+    	    window.clearTimeout(theTimer);
+    	    theElement = $(this);
+
+    	    theTimer = window.setTimeout(function () {
+    	      theElement.addClass('open');
+    	    }, delay);
+    	  })
+    	    .on('mousemove', function (inEvent) {
+    	        if(Math.abs(theLastPosition.x - inEvent.ScreenX) > 4 || 
+    	           Math.abs(theLastPosition.y - inEvent.ScreenY) > 4)
+    	        {
+    	            theLastPosition.x = inEvent.ScreenX;
+    	            theLastPosition.y = inEvent.ScreenY;
+    	            return;
+    	        }
+    	        
+    	    if (theElement.hasClass('open')) return;
+    	    window.clearTimeout(theTimer);
+    	    theTimer = window.setTimeout(function () {
+    	      theElement.addClass('open');
+    	    }, delay);
+    	  })
+    	    .on('mouseleave', function (inEvent) {
+    	    window.clearTimeout(theTimer);
+    	    theElement = $(this);
+    	    theTimer = window.setTimeout(function () {
+    	      theElement.removeClass('open');
+    	    }, delay);
+    	  });
+    	})(jQuery, window, 200); // 200 is the delay in milliseconds
+    	</script>
+	<script>
+    	//<![CDATA[
+
+    			$(document).ajaxStart(function() {
+    				$('#loading').show();
+    			});
+    			$(document).ajaxStop(function(){
+    				$('#loading').hide();
+    			});
+    			$(document).ready(function(){
+    				
+    				$('.tip').tooltip();
+    				$('.item-busca').click(function(){
+    					$('.busca').slideToggle();
+    					return false;
+    				});
+    				$('.btn-login').click(function(){
+    					$('#identificacao').slideToggle();
+    					return false;
+    				});
+    				$('.dropdown-toggle').dropdown();
+    				$('.dropdown-toggle').bind('click', function(){
+    					window.location.href=$(this).attr('href');
+    				});
+    				$('ul.nav li.dropdown').hover(function() {
+    					$(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
+    				}, function() {
+    					$(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
+    				});
+    				$('input[type=button]').click( function () {
+    					if ( $(this).attr('data-correios') ) {
+    						var url	= $(this).attr('data-correios');
+    						window.open(url);
+    					}
+    				} );
+    				if ($('.galeria').length > 0){
+    					$('.galeria').photobox('.photobox');
+    				}
+    				if ($('.planta-acesso').length > 0){
+    					$('.planta-acesso').photobox('.photobox');
+    				}
+    			});
+    		
+    	//]]>
+     </script>
+
+	<script type="text/javascript">
+		//<![CDATA[
+
+    	$(document).ready(function(){
+        	$('.slides').slidesjs({
+            width: 960,
+            height: 428,
+            play: {
+                active: true,
+                interval: 5000,
+                auto: true,
+                pauseOnHover: true
+            }
+        	});
+    	});
+    	
+    	
+		//]]>
+	</script>
+	
+	
+</h:body>
+</html>

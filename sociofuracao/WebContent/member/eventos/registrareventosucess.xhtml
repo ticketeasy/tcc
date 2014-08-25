@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+
+
+	<ui:define name="sub_content_membro">
+
+		<h:form id="formRegistrar">
+		   <div align="center">
+			<div class="col-md-9 interna">
+				<div class="row">
+					<div class="row">
+						<div class="col-md-12">
+						    <br/><br/><br/><br/>
+							<h3>Evento registrado com sucesso...</h3>
+							<br/><br/>
+						</div>
+					</div>
+					<div class="row">
+						<h:commandButton styleClass="btn btn-inverse pull-right-old btn"
+								value="Voltar"
+								action="#{socioEventoController.voltar}" />
+					</div>
+				</div>
+			</div>
+		   </div>
+		</h:form>
+	</ui:define>
+</ui:composition>

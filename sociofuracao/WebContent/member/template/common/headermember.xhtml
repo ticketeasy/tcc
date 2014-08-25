@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+      >
+    <body>
+	<ui:composition>
+	 
+       <nav class="navbar navbar-fixed-top" role="navigation">
+       	 <div class="container topo">
+       	   <div class="navbar-header logo">
+       	   		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-principal" role="navigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand link-logo" href="/sociofuracao/index.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/img/sociofuracaologo1.png" alt="Sócio Furacão" class="" /></a>
+				<div class="navbar-collapse collapse menu-principal">
+					<ul class=" nav navbar-nav">
+					 <li class="dropdown">
+					   <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+					      Planos
+					      <b class="caret"></b>
+					    </a>
+					    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+					    <li>
+					      <a href="#">Sócio Furacão Mundi</a>
+					    </li>
+					    <li>
+					      <a href="#">Sócio Furacão Fan</a>
+					    </li>
+					    <li>
+					      <a href="#">Sócio Furacão</a>
+					    </li>
+					    <li>
+					      <a href="#">Sócio Furacão Plus</a>
+					    </li>
+					    <li>
+					      <a href="#">Sócio VIP</a>
+					    </li>
+					   </ul>
+					 </li>
+					 <li>
+					   <a href="#">Notícias</a>
+					 </li>
+					 <li>
+					   <a href="#">Eventos</a>
+					 </li>
+					 <li class="dropdown">
+					   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					     Contato
+					     <b class="caret"></b>
+					   </a>
+					   <ul class="dropdown-menu">
+					     <li>
+					       <a href="/contato/">Contato</a>
+					     </li>
+					     <li>
+					       <a href="#">Perguntas Frequentes</a>
+					     </li>
+					   </ul>
+					   <li class="li-item-busca">
+					     <a href="#" class="item-busca">
+					       <span class="glyphicon glyphicon-search"></span>
+					     </a>
+					   </li>
+					   <li class="logado noborder">
+					      <div class="row">
+							<div class="col-md-12">
+								<a title="Minha Conta" href="/minha-conta">
+									<span class="fa fa-user"></span>
+										Olá <h:outputText value="#{loginController.usuario.nome}" />
+								</a>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-md-7">
+									<a class="btn btn-danger navbar-btn btn-block" title="Minha Conta" href="/minha-conta">Minha Conta</a>
+								</div>
+								<div class="col-md-5">
+									<a class="btn btn-default navbar-btn btn-block" title="Sair" href="/sociofuracao/index.xhtml">Sair</a>
+								</div>
+							</div>
+					   </li>
+					 </li>
+					</ul>	
+			        <div class="nav navbar-nav navbar-right carrinho">
+					                        <a href="#" title="Minhas Novas Associações">
+                            <span class="ico-lg icon-cor fa fa-shopping-cart"></span>
+                            	0                        
+                            </a>
+                                        
+				   </div >
+					
+				</div>
+	   	   </div>
+	   	   
+       	   <div id="identificacao" class="container" style="display: none;">
+				  <h:form id="formLogin">
+					<div style="display:none;">
+						<input type="hidden" value="POST" name="_method" />
+					</div>
+					
+					<div class="form-group required">
+					  <label class="col-md-12 text-left" for="SocioAcesso">E-mail/Login</label>
+					  <h:inputText id="SocioAcesso" styleClass="form-control" value="#{loginController.email}" />
+					</div>
+					<div class="form-group required">
+					 <label class="col-md-12 text-left" for="SocioSenha">Senha</label>
+					 <h:inputSecret id="SocioSenha" styleClass="form-control" value="#{loginController.senha}"/>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<a class="esqueci" href="/esqueci-minha-senha">Esqueci Minha Senha</a>
+						</div>
+						<div class="col-md-6">
+							<p:commandLink styleClass="btn btn-default btn"  value="entrar" action="#{loginController.eventosDisponiveis()}" oncomplete="afterLoad(xhr, status, args)" >
+							  	
+							</p:commandLink>
+						    
+						</div>
+						
+							<div class="col-md-12">
+								<a title="Cadastrar-se" href="#">Cadastrar-se</a>
+							</div>
+					</div>
+				</h:form>
+			</div>
+       	 </div>
+         <div class="container busca" style="display: none;">
+         	<div class="row">
+				<form id="FaqIndexForm" accept-charset="utf-8" method="post" action="#">
+					<div style="display:none;">
+						<input type="hidden" value="POST" name="_method" />
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<div class="input-group">
+							<input id="FaqBusca" class="form-control" type="text" name="data[Faq][busca]" placeholder="Faça sua pergunta" />
+							<span class="input-group-btn">
+								<button class="btn btn-danger" type="submit">?</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+         </div>
+           <div id="block_erro_member" style="display: none">
+            <div class="container flash">
+			<div class="row">
+				<div class="alert alert-block alert-danger">
+				    <button class="close" onclick="hideBlockContainerFlashMember()" type="button">×</button>
+					TESTE
+				</div>
+			</div>
+	     </div>
+         </div>
+       </nav>
+       
+       
+       
+	</ui:composition>
+	
+    </body>
+</html>

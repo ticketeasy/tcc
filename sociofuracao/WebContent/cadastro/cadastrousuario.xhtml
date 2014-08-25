@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/modeloPrincipal.xhtml">
+
+	<ui:define name="content">
+	    
+		<div class="container interna">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Cadastro</h1>
+				</div>
+			</div>
+			<br />
+
+			<h:form id="cadastrousuario">
+			     <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" /> 
+				<div class="row formularios">
+					<div class="col-md-4">
+						<h4 class="titulo">Dados Pessoais</h4>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioCpf">CPF</label>
+							<h:inputText id="SocioCPF" styleClass="form-control" 
+								required="true" size="20"
+								value="#{loginController.usuarioForm.cpf}" />
+							
+						</div>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioNome">Nome</label>
+							<h:inputText id="SocioNome" styleClass="form-control"
+								required="true" size="50"
+								value="#{loginController.usuarioForm.nome}" />
+						</div>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioNascimento">Nascimento</label>
+							<h:inputText id="SocioNascimento" styleClass="form-control"
+								required="true" size="50"
+								value="#{loginController.usuarioForm.datanascimento}" />
+						</div>
+						
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioSexo">Sexo</label>
+							<h:selectOneMenu styleClass="form-control" value="#{loginController.usuarioForm.sexo}">
+							<f:selectItem itemValue="" itemLabel="Selecionar.." />
+	            				<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
+	            				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+	        				</h:selectOneMenu>
+
+						</div>
+						
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioRg">RG</label>
+							<h:inputText id="SocioRg" styleClass="form-control"
+								required="true" size="20"
+								value="#{loginController.usuarioForm.rg}" />
+						</div>
+						
+					</div>
+					<div class="col-md-4">
+						<h4 class="titulo">Dados de Acesso</h4>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioCidade">Tipo Usuário</label>
+							<h:selectOneMenu id="SocioTipo" styleClass="form-control" value="#{loginController.usuarioForm.tiposocio}">
+								<f:selectItem itemValue="" itemLabel="Selecionar.." />
+	            				<f:selectItems value="#{loginController.lstTiposSocios}" />
+	            			</h:selectOneMenu>
+						</div>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioEmail">E-Mail</label>
+							<h:inputText id="SocioEmail" styleClass="form-control"
+								required="true" size="255"
+								value="#{loginController.usuarioForm.email}" />
+						</div>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioSenhaOne">Senha</label>
+							<h:inputSecret id="SocioSenhaOne" styleClass="form-control"
+								required="true" size="20"
+								value="#{loginController.senha_one}" />
+						</div>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioSenhaTwo">Repetir a Senha</label>
+							<h:inputSecret id="SocioSenhaTwo" styleClass="form-control"
+								required="true" size="20"
+								value="#{loginController.senha_two}" />
+						</div>
+						<h4 class="titulo">Redes Sociais</h4>
+						<div class="form-group">
+							<label class="col-md-12 control-label" for="SocioFace">Facebook</label>
+							<h:inputText id="SocioFace" styleClass="form-control"
+								 size="20"
+								value="#{loginController.usuarioForm.facebook}" />
+							<span class="help-block">
+								<span class="fa fa-facebook"></span>
+								cole a URL do seu perfil
+							</span>
+						</div>
+						<div class="form-group">
+							<label class="col-md-12 control-label" for="SocioTwitter">Twitter</label>
+							<h:inputText id="SocioTwitter" styleClass="form-control"
+								size="20"
+								value="#{loginController.usuarioForm.twitter}" />
+							<span class="help-block">
+								<span class="fa fa-twitter"></span>
+									exemplo: @atleticopr
+							</span>
+						</div>
+						<div class="form-group">
+							<label class="col-md-12 control-label" for="SocioLinkedin">LinkedIn</label>
+							<h:inputText id="SocioLinkedin" styleClass="form-control"
+								size="20"
+								value="#{loginController.usuarioForm.instagran}" />
+							<span class="help-block">
+								<span class="fa fa-linkedin"></span>
+								cole a URL do seu perfil
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4 endereco">
+						<h4 class="titulo">Endereço</h4>
+						<div class="form-group required">
+							<label class="col-md-3 control-label" for="SocioPais">Pais</label>
+							<h:selectOneMenu styleClass="form-control" value="#{loginController.usuarioForm.pais}">
+								<f:selectItem itemValue="" itemLabel="Selecionar.." />
+	            				<f:selectItems value="#{loginController.lstPaises}" />
+	            				<p:ajax update="SocioEstado" listener="#{loginController.handleEstado}" />  
+	            			</h:selectOneMenu>
+
+						</div>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioEstado">Estado/Provincia</label>
+							<h:selectOneMenu id="SocioEstado" styleClass="form-control" value="#{loginController.usuarioForm.estado}">
+								<f:selectItem itemValue="" itemLabel="Selecionar.." />
+	            				<f:selectItems value="#{loginController.lstEstados}" />
+	            				<p:ajax update="SocioCidade" listener="#{loginController.handleCidade}" />  
+	            			</h:selectOneMenu>
+						</div>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioCidade">Cidade</label>
+							<h:selectOneMenu id="SocioCidade" styleClass="form-control" value="#{loginController.usuarioForm.cidade}">
+								<f:selectItem itemValue="" itemLabel="Selecionar.." />
+	            				<f:selectItems value="#{loginController.lstCidades}" />
+	            			</h:selectOneMenu>
+						</div>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioCEP">Caixa Postal</label>
+							<h:inputText id="SocioCEP" styleClass="form-control"
+								required="true" size="20"
+								value="#{loginController.usuarioForm.cep}" />
+						</div>
+						<div class="form-group required">
+							<label class="col-md-12 control-label" for="SocioEndereco">Endereço</label>
+							<h:inputText id="SocioEndereco" styleClass="form-control"
+								required="true" size="60"
+								value="#{loginController.usuarioForm.endereco}" />
+						</div>
+						<h4 class="titulo titulo-dados">Contato</h4>
+						<div id="row">
+							<div class="form-group required">
+								<label class="col-md-12 control-label" for="SocioTelefone">Telefone</label>
+								<h:inputText id="SocioTelefone" styleClass="form-control"
+									required="false" size="60"
+									value="#{loginController.usuarioForm.telefone}" />
+							</div>
+						</div>
+						<div id="row">
+							<div class="form-group required">
+								<label class="col-md-12 control-label" for="SocioCelular">Celular</label>
+								<h:inputText id="SocioCelular" styleClass="form-control"
+									required="false" size="60"
+									value="#{loginController.usuarioForm.celular}" />
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<hr/>
+				<div class="row prosseguir">
+					<div class="col-md-12 text-right">
+						<h:commandButton styleClass="btn btn-lg btn-inverse btn" value="Salvar / Avançar" action="#{loginController.salvarUsuario}"  />
+					</div>
+				</div>
+			</h:form>
+
+		</div>
+	</ui:define>
+
+
+
+</ui:composition>

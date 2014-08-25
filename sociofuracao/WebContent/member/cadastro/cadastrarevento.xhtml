@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+	<ui:define name="sub_content_membro">
+	  <h:form id="formcadastrarevento">
+		<div class="col-md-9 interna">
+			<div class="row">
+				<div class="col-md-9">
+					<h4>Manter Evento</h4>
+				</div>
+			</div>
+			<br />
+			<div class="row formularios">
+			    <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Eventos</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body">
+							<div class="table-responsive">
+								<h:dataTable id="dataTables"
+									styleClass="table table-striped table-bordered table-hover"
+									var="evento" value="#{eventoController.eventosForm}">
+
+									<h:column>
+										<h:selectBooleanCheckbox value="#{eventoController.checked[evento.id]}" />
+									</h:column>
+									<h:column>
+										<h:commandLink action="#{eventoController.editar}">
+											<i class="fa fa-edit"></i>
+											<f:setPropertyActionListener value="#{evento}"
+													target="#{eventoController.eventoForm}" /> 
+											
+										</h:commandLink>
+									</h:column>
+									<h:column>
+										<f:facet name="header">ID</f:facet>
+						#{evento.id}
+					</h:column>
+
+									<h:column>
+										<f:facet name="header">Data</f:facet>
+										<h:outputText id="date" value="#{evento.data}" size="20"
+											required="true">
+
+											<f:convertDateTime pattern="dd/MM/yyyy" />
+										</h:outputText>
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Hora</f:facet>
+						#{evento.hora}
+					</h:column>
+
+									<h:column>
+										<f:facet name="header">Descrição</f:facet>
+						#{evento.descricao}
+					</h:column>
+
+
+								</h:dataTable>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			    <div class="col-md-12 text-center">
+					<h:commandLink styleClass="btn btn-lg btn-inverse btn-sm"
+						value="Incluir" action="#{eventoController.incluir}" />
+					<span> </span>
+					
+					<button id="btnexcluir" class="btn btn-lg btn-inverse btn-sm" >Excluir</button>
+					
+					<h:commandLink id="hbtnexcluir"  styleClass="btn btn-lg btn-inverse btn-sm"
+						action="#{eventoController.excluir}" style="display:none"  >
+						<f:ajax execute="@this dataTables" render="dataTables" />
+					</h:commandLink>
+					
+				</div>
+			</div>
+		</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

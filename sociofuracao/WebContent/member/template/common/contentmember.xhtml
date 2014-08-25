@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+	    
+		<div class="container interna painel-socio">
+			<div class="row">
+			    <h:form id="contentmemberform">
+				<div class="col-md-3">
+					<div class="row lateral-logado">
+					 
+						<div class="col-md-12 menu-logado">
+							<ul>
+								<li class=" active"><a title="Principal" href="/sociofuracao/member/index.xhtml">Principal</a>
+								</li>
+								<li class=""><h:commandLink value="Eventos Disponiveis" title="Meus Dados Cadastrais" action="#{usuarioController.eventosDisponiveis}" /></li>
+								<li class=""><a title="Meu Novo Smart" href="/sociofuracao/member/eventos/resgatar.xhtml">Resgatar
+										Lugar</a></li>
+								<li class=""><a title="Meu Novo Smart" href="#">Trocar
+										Lugar</a></li>
+								<li class=""><a title="Meu Novo Smart" href="/sociofuracao/member/eventos/comprar.xhtml">Comprar
+										Lugar</a></li>
+								<li class=""><h:commandLink value="Eventos" title="Cadastrar Eventos" action="#{usuarioController.cadastrarEventos}" />
+								</li>
+								<li class=""><h:commandLink value="Dados Cadastrais" title="Meus Dados Cadastrais" action="#{usuarioController.atualizaCadastro}" />
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+					<div class="row lateral-logado">
+						<div class="col-md-12 menu-logado">
+							<ul>
+								<li class="central-atendimento"><a
+									title="Central de Atendimento" href="#"> <span
+										class="fa fa-comments ico-lg"></span> Central de Atendimento
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				</h:form>
+				<ui:insert name="sub_content_membro">
+				  <h:form id="form_sub_content_membro">
+					<div class="col-md-9 interna">
+						<div class="row">
+							<div class="col-md-7">
+								<div class="row usuario-avatar">
+									<div class="col-md-12">
+										<span class="glyphicon glyphicon-user ico-lg"></span>
+										<div>
+											Olá <strong><h:outputText
+													value="#{loginController.usuario.nome}" /></strong>
+													 <h:commandLink value="Edite
+												Seus Dados" title="Edite Seus Dados" action="#{usuarioController.atualizaCadastro}" /> 
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<p class="perfil">
+											Perfil: <strong>Esse dado sera montado em tempo de
+												execução %</strong> completo
+										</p>
+										<p>
+											Alterou seus dados, <a
+												title="clique aqui e altere seus dados"
+												href="/dados-cadastrais">clique aqui</a> e mantenha seu
+											cadastro atualizado ajudando o clube a aproximar mais a
+											família atleticana
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<h4>Resumo</h4>
+								<div class="resumo">
+									<ul>
+										<li><span class="label label-danger">Último
+												Acesso:</span> #{loginController.ultimoAcesso}</li>
+										<li><span class="label label-danger">Sócio Desde:</span>
+											#{loginController.dataCadastro}</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<hr />
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Em breve um DashBoard</h4>
+								<div class="col-md-12">
+									<p class="well well-sm well-danger text-left">
+										DashBoard - <span class="fa fa-user"></span> -
+										<h:outputText value="#{loginController.usuario.nome}" />
+										.
+									</p>
+								</div>
+							</div>
+						</div>
+						<hr />
+					</div>
+					</h:form>
+				</ui:insert>
+			</div>
+		</div>
+		
+	</ui:composition>
+</body>
+</html>
+

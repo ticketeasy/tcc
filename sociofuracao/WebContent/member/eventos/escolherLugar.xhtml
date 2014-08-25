@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+
+
+	<style type="text/css">
+.gravar {
+	background-image: url("/img/lugaresDisponiveis.jpg") !important;
+}
+</style>
+	<ui:define name="sub_content_membro">
+
+		<h:form id="formRegistrar">
+			<div class="col-md-9 interna">
+				<div class="row">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>Escolha o seu lugar</h2>
+
+							<div class="row">
+								<div class="col-md-12">
+									<hr />
+									<div align="center">
+										<div class="row">
+											<h4>Mapa de lugares</h4>
+											<p:column rowpan="3">
+											   <p:commandLink action="#{lugarController.inserirLugarCompra()}">
+												  <p:graphicImage url="/img/lugaresDisponiveis.jpg" />
+               									  <f:ajax execute="@this" render="lugares"  />  
+											   </p:commandLink>
+											</p:column>
+											<br /> <br />
+											<p:dataTable style="width:400px"
+												value="#{lugarController.lstLugarCompra}" var="lugar"
+												emptyMessage="Você ainda não selecionou nenhum lugar."
+												id="lugares">
+												<p:column headerText="Lugar">
+													<h:outputText value="#{lugar.lugar}" />
+												</p:column>
+												<p:column headerText="Setor">
+													<h:outputText value="#{lugar.setor}" />
+												</p:column>
+												<p:column headerText="Valor R$">
+													<h:outputText value="#{lugar.valor}" />
+												</p:column>
+												<p:summaryRow>
+													<p:column colspan="2" style="text-align:right">
+														<h:outputText value="Total:" />
+													</p:column>
+													<p:column>
+														<h:outputText value="#{lugar.total}">
+															<f:convertNumber type="currency" currencySymbol="$" />
+														</h:outputText>
+													</p:column>
+												</p:summaryRow>
+											</p:dataTable>
+											<br/>
+											<p:commandLink
+												styleClass="btn-old btn-inverse pull-right-old btn"
+												value="Comprar"
+												action="#{lugarController.efetuarPagamento()}">
+												<f:setPropertyActionListener value="#{lugar}"
+													target="#{lugarController.lugar}" />
+											</p:commandLink>
+											<span> </span>
+											<p:commandLink
+												styleClass="btn-old btn-inverse pull-right-old btn"
+												value="Cancelar" action="#{lugarController.voltar()}" />
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

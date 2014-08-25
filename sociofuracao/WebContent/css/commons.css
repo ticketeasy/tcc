@@ -1,0 +1,357 @@
+.glyphicon {
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2;
+    position: relative;
+    top: 5px;
+}
+
+
+@import "http://fonts.googleapis.com/css?family=Playfair+Display:700italic,900italic,400italic";
+.int1 {
+    margin-left: 30px;
+}
+.int2 {
+    margin-left: 60px;
+}
+.int3 {
+    margin-left: 90px;
+}
+.tam80 {
+    width: 80px;
+}
+.tam120 {
+    width: 120px;
+}
+.tam240 {
+    width: 240px;
+}
+.tam500 {
+    width: 500px;
+}
+.false-load {
+    display: none;
+}
+a, a:link, a:visited, a:active, a:hover {
+    color: #B51601;
+}
+#loading {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: none;
+    margin: 0 40%;
+    padding: 12px;
+    position: fixed;
+    text-align: center;
+    top: 77px;
+    width: 240px;
+    z-index: 9999 !important;
+}
+.ico-lg {
+    font-size: 2em;
+    line-height: 30px;
+}
+.ico-md {
+    font-size: 1.5em;
+}
+.container {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.btn-inverse {
+    background-color: #323232;
+    border-color: #000000;
+    color: #FFFFFF;
+}
+.btn-inverse:link, .btn-inverse:visited {
+    color: #FFFFFF !important;
+}
+.btn-inverse:hover, .btn-inverse:focus, .btn-inverse:active, .btn-inverse.active, .open .dropdown-toggle.btn-inverse {
+    background-color: #444444;
+    border-color: #333333;
+    color: #FFFFFF;
+}
+.btn-inverse:active, .btn-inverse.active, .open .dropdown-toggle.btn-inverse {
+    background-image: none;
+}
+.btn-inverse.disabled, .btn-inverse[disabled], fieldset[disabled] .btn-inverse, .btn-inverse.disabled:hover, .btn-inverse[disabled]:hover, fieldset[disabled] .btn-inverse:hover, .btn-inverse.disabled:focus, .btn-inverse[disabled]:focus, fieldset[disabled] .btn-inverse:focus, .btn-inverse.disabled:active, .btn-inverse[disabled]:active, fieldset[disabled] .btn-inverse:active, .btn-inverse.disabled.active, .btn-inverse.active[disabled], fieldset[disabled] .btn-inverse.active {
+    background-color: #777777;
+    border-color: #555555;
+}
+h1, h2, h3, h4, h5 {
+    font-family: Georgia,'Playfair Display',serif;
+    font-style: italic;
+    font-weight: bold;
+}
+h1 {
+    color: #B51601;
+    font-size: 2.9em;
+}
+h2 {
+    background: none repeat scroll 0 0 #B51601;
+    color: #FFFFFF;
+    float: left;
+    font-size: 1.4em;
+    padding: 10px 25px 10px 10px;
+}
+h3 {
+    font-size: 2em;
+}
+.bg-cinza {
+    background: none repeat scroll 0 0 #EFEFEF;
+    clear: both;
+    padding: 30px 0;
+}
+.bg-cinza2 {
+    background: none repeat scroll 0 0 #DADADA;
+    clear: both;
+    padding: 10px 0;
+}
+.bg-cinza3 {
+    background: none repeat scroll 0 0 #EFEFEF;
+}
+.flash {
+    height: auto;
+    margin: 0 auto;
+}
+.flash .alert {
+    border: 0 none;
+    margin: 0;
+}
+.flash .alert-danger {
+    background: none repeat scroll 0 0 #B51601;
+    border-radius: 0;
+    color: #FFFFFF;
+}
+.flash .alert-warning {
+    background: none repeat scroll 0 0 #FAEFAF;
+    border-radius: 0;
+}
+.flash .alert-info {
+    background: none repeat scroll 0 0 #FFFF00;
+    border-radius: 0;
+    color: #000000;
+}
+.flash a, .flash a:hover, .flash a:active, .flash a:link, .flash a:visited {
+    color: #FFFFFF;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+}
+.flash .alert-info a, .flash .alert-info a:hover, .flash .alert-info a:active, .flash .alert-info a:link, .flash .alert-info a:visited {
+    color: #000000;
+}
+.table-center, .table-center td, .table-center th {
+    text-align: center;
+}
+.well-danger {
+    background: none repeat scroll 0 0 #B51601;
+    border: 1px solid #555555;
+    color: #FFFFFF;
+}
+h4.titulo, .titulos h4, .definicao h4 {
+    font: bold 2.1em Arial,Helvetica;
+}
+h4.titulo-menor {
+    font-size: 1.6em;
+}
+.caret {
+    border-bottom-color: #B51601 !important;
+    border-top-color: #B51601 !important;
+}
+.interna {
+    padding-bottom: 60px;
+    padding-top: 36px;
+}
+.formularios > .col-md-4 {
+    border-right: 1px solid #CCCCCC;
+    min-height: 720px;
+}
+.formularios > .col-md-4:last-child {
+    border-right: 0 none;
+}
+.formularios label {
+    padding: 0;
+}
+.formularios .endereco .col-md-5 {
+    padding-left: 0;
+}
+.formularios .endereco .col-md-6 {
+    padding-right: 0;
+}
+.error, .error input, .error .help-block, .error {
+    border-color: #FF0000 !important;
+    color: #FF0000;
+}
+.pag {
+    text-align: center;
+}
+.pagination a, .pagination a:active, .pagination a:link, .pagination a:visited {
+    background: none repeat scroll 0 0 #B51601;
+    border: 0 none;
+    color: #FFFFFF;
+}
+.pagination .active a, .pagination .active a:link, .pagination .active a:hover, .pagination .active a:active, .pagination .active a:visited {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #B51601;
+}
+.pagination a:hover {
+    background: none repeat scroll 0 0 #000000 !important;
+    color: #FFFFFF !important;
+}
+.pagination .next a, .pagination .prev a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #B51601;
+}
+.pagination .next a:hover, .pagination .prev a:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    color: #000000 !important;
+}
+.pagination .disabled a, .pagination .disabled a:hover, .pagination .disabled a:visited, .pagination .disabled a:link, .pagination .disabled a:active {
+    border: 0 none;
+    color: #CCCCCC !important;
+}
+.esqueci-senha label {
+    padding: 0;
+}
+.central-atendimento span {
+    float: left;
+    margin-right: 10px;
+}
+.usuario-avatar span {
+    background: url("/img/site/circle-usuario.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    font-size: 1.9em;
+    height: 73px !important;
+    line-height: 70px;
+    text-align: center;
+    width: 73px !important;
+}
+.usuario-avatar > div > div {
+    float: right;
+    margin-top: 3%;
+    width: 78%;
+}
+.usuario-avatar > div > div a, .usuario-avatar > div > div a:active, .usuario-avatar > div > div a:link, .usuario-avatar > div > div a:visited, .usuario-avatar > div > div a:hover {
+    clear: both;
+    color: #B51601;
+    display: block;
+    font-size: 0.85em;
+    width: 100px;
+}
+#identificacao label {
+    padding: 0;
+}
+#identificacao {
+    background: url("img/seta-login.png") no-repeat scroll 180px -25px #555555;
+    color: #CCCCCC;
+    display: none;
+    margin-left: 560px;
+    padding: 20px 40px !important;
+    position: absolute;
+    width: 300px;
+    z-index: 1;
+}
+#identificacao .esqueci {
+    font-size: 0.8em;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+}
+a.esqueci, a.esqueci:link, a.esqueci:hover, a.esqueci:active, a.esqueci:visited {
+    color: #FFFFFF;
+}
+#identificacao hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color;
+    border-image: none;
+    border-style: none none dotted;
+    border-width: 0 0 1px;
+    clear: both;
+}
+#identificacao .btn {
+    margin: 0 0 10px;
+}
+#identificacao .col-md-12 {
+    text-align: center;
+}
+#identificacao .col-md-12 a, #identificacao .col-md-12 a:hover, #identificacao .col-md-12 a:active, #identificacao .col-md-12 a:link, #identificacao .col-md-12 a:visited {
+    color: #CCCCCC;
+    font-weight: bold;
+}
+.menor0 {
+    font-size: 0.81em !important;
+}
+.menor1 {
+    font-size: 0.85em !important;
+}
+.menor2 {
+    font-size: 0.95em !important;
+}
+.text-left, .text-left p {
+    text-align: left !important;
+}
+.margin0 {
+    margin: 0 !important;
+}
+.padding0 {
+    margin: 0 !important;
+}
+.white {
+    color: #FFFFFF;
+}
+.mapster_tooltip {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 5px;
+    position: absolute;
+}
+.mapa .legenda {
+    border: 1px solid #EEEEEE;
+    border-radius: 6px;
+    display: block;
+    font-size: 0.8em;
+    line-height: 20px;
+    margin-left: 410px;
+    padding: 6px;
+    position: absolute;
+    z-index: 9;
+}
+.mapa .legenda ul, .mapa .legenda li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.mapa .legenda span {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    display: block;
+    float: left;
+    height: 12px;
+    margin-right: 6px;
+    margin-top: 4px;
+    width: 20px;
+}
+.mapa .legenda .disponivel {
+    background: none repeat scroll 0 0 #BF1E1E;
+}
+.mapa .legenda .lotado {
+    background: none repeat scroll 0 0 #CCCCCC;
+}
+.hide {
+    display: none;
+}
+label.menor {
+    font-size: 0.76em;
+    white-space: nowrap;
+}

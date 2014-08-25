@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+	<ui:define name="sub_content_membro">
+
+		<div class="col-md-9 interna">
+			<div class="row">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Efetuar pagamento de R$ #{lugarController.valorTotal}</h2>
+						<div class="row formularios">
+
+							<div class="col-md-9">
+								<label class="col-md-3 control-label" for="PaginaNome">Nome
+									Próprio:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.nomeProprio}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Sobrenome:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.sobreNome}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Endereço da Fatura:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.endereco}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Estado:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.estado}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Código postal:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.cep}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Páis:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.pais}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">Telefone:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.telefone}" />
+							</div>
+							<div class="col-md-9">
+								<br /> <label for="PaginaNome">E-mail:</label>
+								<p:inputText styleClass="form-control" required="required"
+									value="#{lugarController.cartao.email}" />
+
+							</div>
+							<div class="row">
+								<div class="col-md-9">
+									<hr />
+									<h2>Informações do Cartão de Crédito</h2>
+									<div class="col-md-9">
+										<br /> <label for="PaginaNome">Numero do Cartao:</label>
+										<p:inputText styleClass="form-control" required="required"
+											value="#{lugarController.cartao.numeroCartao}" />
+
+									</div>
+									<div class="col-md-9">
+										<br /> <label class="col-md-9" for="PaginaNome">Data
+											Validade:</label>
+										<p:inputText styleClass="form-control" required="required"
+											value="#{lugarController.cartao.dataValidade}"
+											style="width: 100px" />
+										<br /> <span>(mm/aaaa)</span>
+									</div>
+									<div class="col-md-6">
+										<br /> <label class="col-md-9" for="PaginaNome">O
+											CVC2/CVV2:</label>
+										<p:inputText styleClass="col-md-9 form-control"
+											required="required" value="#{lugarController.cartao.cvc}"
+											style="width: 80px;" />
+										<br />
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							  <div class="col-md-9">
+								<hr />
+								<center>
+									<p:commandLink
+										styleClass="btn-old btn-inverse pull-right-old btn"
+										value="Processsar Pagamento" action="#{lugarController.removeResgatar()}">
+										<f:setPropertyActionListener value="#{lugar}"
+											target="#{lugarController.lugar}" />
+									</p:commandLink>
+									<span> </span>
+									<p:commandLink
+										styleClass="btn-old btn-inverse pull-right-old btn"
+										value="Cancelar" action="#{lugarController.voltar()}" />
+								</center>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-9">
+								<hr />
+								<center>
+									<img
+										src="#{facesContext.externalContext.requestContextPath}/img/visa.png"
+										alt="Visa" class="" /> <img
+										src="#{facesContext.externalContext.requestContextPath}/img/mastercard.png"
+										alt="MasterCard" class="" /> <img
+										src="#{facesContext.externalContext.requestContextPath}/img/american-express.png"
+										alt="American Express" class="" /> <img
+										src="#{facesContext.externalContext.requestContextPath}/img/jcb.png"
+										alt="JCB" class="" />
+								</center>
+							  </div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

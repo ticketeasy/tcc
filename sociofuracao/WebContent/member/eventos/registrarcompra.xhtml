@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+
+
+	<ui:define name="sub_content_membro">
+
+		<h:form id="formRegistrar">
+			<div class="col-md-9 interna">
+				<div class="row">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>Selecionar Lugares</h2>
+							<div class="col-md-10">
+							<div class="row">
+							
+								<input type="checkbox" name="xhtml_mp_tutorial_chapter" value="1" checked="checked"/>
+								<label for="smallpox">Lugar 305O031</label><br />
+							</div>
+							</div>							
+							<h2>Termo de condições</h2>
+							<div class="row">
+
+								<div class="col-md-10">
+									<p:inputTextarea styleClass="form-control" rows="10" cols="90"
+										value="#{socioEventoController.texto}" queryDelay="750"
+										minQueryLength="4" disabled="true" />
+									<div class="row">
+										<div class="col-md-10">
+											<div align="left">
+												<h:panelGrid columns="1" id="display">
+													<p:selectOneRadio id="customRadio" value="#{lugarController.termoID}" layout="grid"
+														columns="1">
+														<f:selectItem
+															itemLabel="Eu li e aceito os termos de condições."
+															itemValue="1" />
+														<br />
+														<f:selectItem
+															itemLabel="Eu li e não aceito os termos de condições."
+															itemValue="2" />
+													</p:selectOneRadio>
+												</h:panelGrid>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						    <br/>	
+							<p:commandLink styleClass="btn btn-inverse pull-right-old btn"
+								value="Resgatar"
+								action="#{lugarController.resgatarIngresso()}" />
+							<span> </span>
+							<p:commandLink styleClass="btn btn-inverse pull-right-old btn"
+								value="Cancelar"
+								action="#{lugarController.voltar()}" />
+
+							<hr />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

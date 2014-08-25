@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/member/index.xhtml">
+	<ui:define name="sub_content_membro">
+		<h:form id="formeditevento" prependId="false" enctype="multipart/form-data" acceptcharset="UTF-8">
+			<div class="col-md-9 interna">
+				<div class="row">
+					<div class="col-md-9">
+						<h4>Manter Evento</h4>
+					</div>
+				</div>
+				<br />
+
+				<div class="row formularios">
+				  <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" /> 
+					<div class="col-md-5">
+						<div class="form-group required">
+							<div class="form-group required">
+								<label class="col-md-5 control-label" for="EventoData">Data
+									Evento</label>
+								<h:inputText id="EventoData" styleClass="form-control"
+									required="false" size="10"
+									value="#{eventoController.eventoForm.data}" />
+
+							</div>
+							<div class="form-group required">
+								<label class="col-md-5 control-label" for="EventoHora">Hora
+									Evento</label>
+								<h:inputText id="EventoHora" styleClass="form-control"
+									required="false" size="8"
+									value="#{eventoController.eventoForm.hora}" />
+
+							</div>
+							<div class="form-group required">
+								<label class="col-md-12 control-label" for="EventoEstadio">Estadio</label>
+								<h:selectOneMenu id="EventoEstadio" styleClass="form-control"
+									value="#{eventoController.eventoForm.idEstadio}" required="false">
+									<f:selectItem itemValue="" itemLabel="Selecionar.." />
+									<f:selectItems value="#{eventoController.lstEstadio}" />
+								</h:selectOneMenu>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-6">
+						<label class="col-md-5 control-label" for="EventoImagem">Imagem do Evento</label>
+						
+						<p:fileUpload value="#{eventoController.imagem}" mode="simple" update="emagev"/>
+						<br/>
+						<span> </span>
+						<img id="imageev" src="#{request.contextPath}/eventoimage?id=#{eventoController.eventoForm.id}"
+						     height="150" width="350" />
+
+					</div>
+					<div class="col-md-10">
+						<div class="form-group required">
+							<div class="form-group required">
+								<label class="col-md-5 control-label" for="EventoDescricao">Descrição</label>
+								<h:inputText id="EventoDescricao" styleClass="form-control"
+									required="false" size="100"
+									value="#{eventoController.eventoForm.descricao}" />
+							</div>
+
+							<div class="form-group required">
+								<label class="col-md-5 control-label" for="EventoResp">Responsável</label>
+								<h:inputText id="EventoResp" styleClass="form-control"
+									required="false" size="60"
+									value="#{eventoController.eventoForm.responsavel}" />
+							</div>
+
+							<div class="form-group required">
+								<label class="col-md-5 control-label" for="EventoTipo">Tipo
+									Evento</label>
+								<h:inputText id="EventoTipo" styleClass="form-control"
+									required="false" size="50"
+									value="#{eventoController.eventoForm.tipoevento}" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-12 text-center">
+				<h:commandButton styleClass="btn btn-lg btn-inverse btn-sm"
+					value="Salvar" action="#{eventoController.salvar}" update="photoevento" >
+					
+				</h:commandButton>
+				<span> </span>
+				<h:commandButton styleClass="btn btn-lg btn-inverse btn-sm"
+					value="Voltar" action="#{eventoController.voltarEvento}" />
+
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
